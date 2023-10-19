@@ -78,7 +78,7 @@ Rather than the traditional method of logging in with a username and password, w
 
 ### Authorization:
 
-Our code is fortified with the [Authorize] attribute. This denotes that certain controller methods demand authorization. Essentially, before granting access, the system ensures that any incoming request is authenticated.
+This code is fortified with the [Authorize] attribute. This denotes that certain controller methods demand authorization. Essentially, before granting access, the system ensures that any incoming request is authenticated.
 
 #### Process:
 - A user dispatches a request to our server carrying an 'Authorization' header embedding the token (typically, this is a JWT or a Bearer token).
