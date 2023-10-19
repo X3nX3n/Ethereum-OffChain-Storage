@@ -3,6 +3,8 @@
 The API provides an interface for managing files in server-side storage (OffChain). 
 The "OffChain" designation underscores that while data storage operations are conducted on the server, there's a seamless integration with an Ethereum wallet.
 This Ethereum wallet is not merely for user authentication, but it also offers an added layer of security for user data stored on the server, ensuring its integrity and authenticity without taxing the blockchain.
+![изображение](https://github.com/RuslanChokawi/OffChainStorage/assets/47632045/7a852c7a-8f7b-474e-8c74-dc4d64870c03)
+
 
 ## Dependencies:
 - **Microsoft.AspNetCore.Authorization**: For authorization.
