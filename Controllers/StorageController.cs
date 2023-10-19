@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using Swashbuckle.AspNetCore.Annotations;
 using Microsoft.Extensions.Hosting;
 using OffChainStorage.Services;
+using Microsoft.Extensions.Logging;
 
 namespace OffChainStorage.Controllers
 {
@@ -16,11 +17,13 @@ namespace OffChainStorage.Controllers
    {
       private static IVerifier verifier;
 
-      public StorageController(IVerifier _verifier)
-      {
-         verifier = _verifier;
-      }
+      private readonly ILogger<StorageController> _logger;  // Add this line for the logger
 
+      public StorageController(IVerifier _verifier, ILogger<StorageController> logger)
+      { 
+         verifier = _verifier;
+         _logger = logger;  // Initialize the logger
+      }
       /// <summary>
       /// Returns a list of all files in the user's storage.
       /// </summary>
@@ -65,11 +68,19 @@ namespace OffChainStorage.Controllers
          // Build the full path to the folder where files should be saved
          var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "storage", userName, pathToSave);
 
-         // If the folder doesn't exist, create it
-         if (!Directory.Exists(fullPath))
+         try
          {
-            Directory.CreateDirectory(fullPath);
+            // If the folder doesn't exist, create it
+            if (!Directory.Exists(fullPath))
+            {
+               Directory.CreateDirectory(fullPath);
+            }
          }
+         catch(Exception ex) 
+         {
+            _logger.LogError(ex.Message);
+         }
+
 
          var filePaths = new List<string>();
 
@@ -275,8 +286,5 @@ namespace OffChainStorage.Controllers
 
          return Ok(new { success = true, message = "Files successfully deleted." });
       }
-
    }
-
-
 }

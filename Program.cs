@@ -1,11 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Org.BouncyCastle.Crypto;
-using OffChainStorage.Controllers;
 using OffChainStorage.Services;
 using OffChainStorage.Swagger.Filters;
 using System.Reflection;
