@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # OffChainStorage API
 
 The API provides an interface for managing files in server-side storage (OffChain). 
