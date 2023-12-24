@@ -82,8 +82,8 @@ Rather than the traditional method of logging in with a username and password, w
 This code is fortified with the [Authorize] attribute. This denotes that certain controller methods demand authorization. Essentially, before granting access, the system ensures that any incoming request is authenticated.
 
 #### Process:
-- A user dispatches a request to our server carrying an 'Authorization' header embedding the token (typically, this is a JWT or a Bearer token).
-- Our server rigorously checks the token's legitimacy, such as verifying its signature and checking its expiry date.
+- A user dispatches a request to server carrying an 'Authorization' header embedding the token (typically, this is a JWT or a Bearer token).
+- Server rigorously checks the token's legitimacy, such as verifying its signature and checking its expiry date.
 - If everything checks out and the token is validated, access to the intended method is granted. Otherwise, the user encounters an authorization error.
 
 ### Getting Started:
